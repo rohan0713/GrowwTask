@@ -45,7 +45,11 @@ class SearchActivity : AppCompatActivity() {
 //        }
 
         binding.btnSearch.setOnClickListener {
+
+            val textToSearch = binding.etSearchText.text.toString()
+
             Intent(this@SearchActivity, ResultActivity::class.java).also {
+                it.putExtra("input", textToSearch)
                 startActivity(it)
             }
         }

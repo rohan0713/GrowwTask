@@ -25,6 +25,7 @@
             app:tint="@color/white" />
 
         <TextView
+            android:id="@+id/tvSearchedText"
             android:layout_toEndOf="@id/ivBack"
             android:text="Arijit Singh"
             android:textSize="16sp"
