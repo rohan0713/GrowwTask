@@ -1,5 +1,9 @@
 package com.social.growwtask.data.models
 
+import androidx.room.Entity
+import java.io.Serializable
+
+@Entity
 data class ItemXX(
     val album: Album,
     val artists: List<Artist>,
@@ -18,4 +22,4 @@ data class ItemXX(
     val track_number: Int,
     val type: String,
     val uri: String
-)
+) : Serializable

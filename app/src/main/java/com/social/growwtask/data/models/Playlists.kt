@@ -1,5 +1,9 @@
 package com.social.growwtask.data.models
 
+import androidx.room.Entity
+import java.io.Serializable
+
+@Entity
 data class Playlists(
     val href: String,
     val items: List<ItemX>,
@@ -8,4 +12,4 @@ data class Playlists(
     val offset: Int,
     val previous: Any,
     val total: Int
-)
+) : Serializable

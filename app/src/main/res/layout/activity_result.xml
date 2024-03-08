@@ -27,7 +27,7 @@
         <TextView
             android:id="@+id/tvSearchedText"
             android:layout_toEndOf="@id/ivBack"
-            android:text="Arijit Singh"
+            tools:text="Arijit Singh"
             android:textSize="16sp"
             android:layout_centerVertical="true"
             android:layout_marginStart="20dp"
@@ -59,7 +59,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tabLayout" />
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

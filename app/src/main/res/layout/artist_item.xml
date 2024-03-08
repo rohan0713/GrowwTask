@@ -15,10 +15,10 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cvArtist"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:padding="5dp"
-            app:cardCornerRadius="30dp">
+            app:cardCornerRadius="25dp">
 
             <ImageView
                 android:id="@+id/ivArtist"
@@ -34,22 +34,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Arijit Singh"
+            android:layout_marginTop="10dp"
             android:layout_toEndOf="@id/cvArtist"
-            android:layout_centerVertical="true"
             android:textColor="@color/white"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="5dp"
             android:textStyle="bold"
             />
 
-        <ImageView
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_toEndOf="@id/tvArtistName"
-            android:layout_centerVertical="true"
-            android:src="@drawable/ic_verified"
-            />
+
     </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

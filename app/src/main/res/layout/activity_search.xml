@@ -50,7 +50,9 @@
                 android:hint="What do you want to listen today?"
                 android:drawableStart="@drawable/ic_search"
                 android:drawablePadding="10dp"
+                android:textColor="@color/white"
                 android:drawableTint="#B3B2B2"
+                android:inputType="textPersonName"
                 >
 
 
@@ -58,10 +60,31 @@
         </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
+        android:id="@+id/tvRecent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Recent Searches"
+        android:textColor="@color/textColor"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tiSearch"
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvHistory"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        tools:listitem="@layout/history_item"
+        app:layout_constraintBottom_toTopOf="@+id/btnSearch"
+        app:layout_constraintTop_toBottomOf="@id/tvRecent" />
+
+    <TextView
         android:id="@+id/tvStatus"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="#5A5A5A"
+        android:visibility="gone"
         android:text="No previous searches\nfound"
         android:gravity="center"
         android:textSize="14sp"

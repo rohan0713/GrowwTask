@@ -12,8 +12,15 @@ class TrackAdapter(private val tracks: TracksX) : RecyclerView.Adapter<TrackAdap
 
     inner class ViewHolder(private val binding: TrackItemBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: ItemXX) {
+
+            Glide.with(binding.root).load(item.album.images[0].url).into(binding.ivPoster)
             binding.tvTrackName.text = item.name
-            binding.tvArtists.text = item.artists[0].name
+
+            val artist = item.artists.take(3).joinToString {
+                it.name
+            }
+
+            binding.tvArtists.text = artist
         }
     }
 

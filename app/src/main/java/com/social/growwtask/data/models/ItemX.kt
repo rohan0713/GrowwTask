@@ -1,5 +1,9 @@
 package com.social.growwtask.data.models
 
+import androidx.room.Entity
+import java.io.Serializable
+
+@Entity
 data class ItemX(
     val collaborative: Boolean,
     val description: String,
@@ -15,4 +19,4 @@ data class ItemX(
     val tracks: Tracks,
     val type: String,
     val uri: String
-)
+) : Serializable

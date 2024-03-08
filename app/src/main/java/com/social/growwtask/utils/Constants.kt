@@ -8,7 +8,7 @@ class Constants {
         }
 
         val token by lazy {
-            "Bearer BQDwHAr8giXdyx5Y13UhLr7pYIE26K2IG3wHGnSj6_wyE56Ftu9b7qn_LqWPUDqwGcjLXRQbgVyrmSEJV2QsydCiZHb1ssTBXTuTiN7_stB6scsonY0"
+            "Bearer BQDt5jW9sOvEZ3n4KoGO4yY2sgsO90ZLpnJXbC7CKT7hTKbJ3jcRl0xoUAI929FWNSQbaBMLBZ5talEJQFydwe-WDJAevSeaMWLN5M6Vior7-bMbKJw"
         }
     }
 

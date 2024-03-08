@@ -1,37 +1,45 @@
 package com.social.growwtask.presentation.ui.activities
 
-import android.content.Intent
 import android.graphics.Color
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.lifecycle.ViewModelProvider
+import androidx.activity.viewModels
 import com.google.android.material.tabs.TabLayoutMediator
-import com.social.growwtask.R
+import com.social.growwtask.data.models.ApiResponse
 import com.social.growwtask.databinding.ActivityResultBinding
-import com.social.growwtask.domain.repositories.TrackRepository
 import com.social.growwtask.presentation.ui.adapters.PageAdapter
 import com.social.growwtask.presentation.ui.viewmodels.TrackViewModel
-import com.social.growwtask.presentation.ui.viewmodels.ViewModelProviderFactory
+import com.social.growwtask.utils.NetworkConnection
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class ResultActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityResultBinding
-    lateinit var viewModel: TrackViewModel
-
+    val viewModel: TrackViewModel by viewModels()
+    lateinit var response: ApiResponse
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(ActivityResultBinding.inflate(layoutInflater).also { binding = it }.root)
 
         window.statusBarColor = Color.BLACK
 
-        val textToSearch = intent.getStringExtra("input")
-        binding.tvSearchedText.text = textToSearch
+        if(!NetworkConnection().isOnline(this)){
+            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU){
+                response = intent.getSerializableExtra("response", ApiResponse::class.java)!!
+            }else{
+                response = (intent.getSerializableExtra("response") as? ApiResponse)!!
+            }
+            binding.tvSearchedText.text = intent.getStringExtra("input")
 
-        val repository = TrackRepository()
-        val provider = ViewModelProviderFactory(repository)
-        viewModel = ViewModelProvider(this, provider)[TrackViewModel::class.java]
-        if (textToSearch != null) {
-            viewModel.getData(textToSearch)
+        }else{
+            val textToSearch = intent.getStringExtra("input")
+            binding.tvSearchedText.text = textToSearch
+
+            if (textToSearch != null) {
+                viewModel.getData(textToSearch)
+            }
         }
 
         val pageAdapter = PageAdapter(this)

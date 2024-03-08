@@ -7,7 +7,9 @@ import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
 import com.social.growwtask.databinding.ActivityMainBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityMainBinding
@@ -25,6 +27,7 @@ class MainActivity : AppCompatActivity() {
         binding.btnStart.setOnClickListener {
             Intent(this@MainActivity, SearchActivity::class.java).also {
                 startActivity(it)
+                finish()
             }
         }
 
